@@ -19,7 +19,7 @@ humana en función del género.
 En la Parte A de la práctica se realiza la adquisición y el análisis inicial de señales de voz. Para ello se graban seis muestras de audio correspondientes a tres voces masculinas y tres voces femeninas pronunciando la misma frase. Posteriormente, las señales se importan en Python para ser analizadas en el dominio del tiempo y en el dominio de la frecuencia mediante la Transformada de Fourier. A partir de este análisis se identifican y calculan diferentes características de la señal de voz, como la frecuencia fundamental, la frecuencia media, el brillo y la intensidad, con el fin de estudiar su comportamiento espectral y preparar la comparación entre ambos géneros.<br> 
 
 #### FRASE: 
-
+> ***El arcoiris brilla en el cielo con colores suaves y mucha luz***
  
 ### Algoritmo 
 ### Codigo 
