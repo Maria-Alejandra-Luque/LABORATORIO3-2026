@@ -419,5 +419,5 @@ print("="*60)
 Posterior a la ejecucicon del codigo se obtuvueron las siguentes graficas
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vmujer.png/>
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vhombre.png/>
-<img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vcomparacion.png/>
+<img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vcomparacion.jpeg/>
 ## PARTE C 
