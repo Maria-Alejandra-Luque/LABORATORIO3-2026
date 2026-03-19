@@ -452,24 +452,47 @@ Para el Shimmer Y Jittler se obtuvo
 ### Mujer 1 Anita:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/anita.png/>
 
+```
+Anita_Mujer_1 (femenino):
+  F0=185.8Hz, Jitter=50.544% (Elevado), Shimmer=18.671%
+```
 ### Mujer 2 Paula:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Pau.png/>
 
+```
+Paula_Mujer_2 (femenino):
+  F0=196.7Hz, Jitter=32.397% (Elevado), Shimmer=15.582% 
+```
 ### Mujer 3 Lina:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Lina.png/>
+```
+Lina_Mujer_3 (femenino):
+  F0=159.6Hz, Jitter=47.617% (Elevado), Shimmer=11.331%
+```
 
 ### Hombre 1 Ralph:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Ralph.png/>
 
+```
+Ralf_Hombre_1 (masculino):
+  F0=129.8Hz, Jitter=64.381% (Elevado), Shimmer=83.363% 
+```
 ### Hombre 2 Laboratorista:
 
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Lab.png/>
 
+```
+Laboratorista_Hombre_2 (masculino):
+  F0=131.9Hz, Jitter=74.440% 
+```
 ### Hombre 3 Dani:
 
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/dani.png/>
 
-
+```
+Dani_Hombre_3 (masculino):
+  F0=130.8Hz, Jitter=82.150% 
+```
 
 
 ## PARTE C 
