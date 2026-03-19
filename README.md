@@ -22,6 +22,8 @@ En la Parte A de la práctica se realiza la adquisición y el análisis inicial 
 > ***El arcoiris brilla en el cielo con colores suaves y mucha luz***
  
 ### Algoritmo 
+<img width="375" height="564" alt="image" src="https://github.com/user-attachments/assets/920dcbf8-cd33-4c6f-b6b1-73718d2ea418" />
+
 ### Codigo 
 ```
 ruta = r"C:\Users\aleja\Downloads\audios"
@@ -132,9 +134,29 @@ Este código procesa todos los audios llamando la función de análisis para cad
 | HOMBRE 1 |<img width="535" height="226" alt="image" src="https://github.com/user-attachments/assets/7ef46a35-dc8b-41d0-b520-4f2eb8aa566a" /> |La gráfica indica que la señal corresponde a una voz masculina, ya que la mayor parte de la energía se concentra en bajas frecuencias y presenta un pico dominante asociado a la frecuencia fundamental (F0), que en hombres suele ser más baja. Esto significa que el tono de la voz es grave. Además, la rápida disminución de la magnitud en altas frecuencias muestra que la señal está bien definida y sin mucho ruido, lo que indica una buena calidad de grabación. En conjunto, el espectro confirma que la información más relevante de la voz se encuentra en bajas frecuencias y permite caracterizar el timbre y tono del hablante. |
 | HOMBRE 2 |<img width="515" height="226" alt="image" src="https://github.com/user-attachments/assets/a737231a-bfda-49c8-a478-1f6201773d28" />|La gráfica muestra que la señal presenta una alta concentración de energía en bajas frecuencias, con un pico dominante que corresponde a la frecuencia fundamental (F0), lo cual es característico de una voz masculina y sugiere un tono grave. Esto indica que la mayor parte de la información relevante de la voz se encuentra en esa zona del espectro. A medida que aumenta la frecuencia, la magnitud disminuye notablemente, evidenciando una menor contribución de componentes de alta frecuencia. Además, la ausencia de picos significativos en altas frecuencias sugiere que la señal tiene poco ruido y una buena calidad de grabación. En conjunto, el espectro permite confirmar las características tonales de la voz y su adecuada captura. |
 | HOMBRE 3 |<img width="521" height="228" alt="image" src="https://github.com/user-attachments/assets/a863c1cc-f144-48db-becc-0e652e2b5017" />|La gráfica muestra que la energía de la señal se concentra en bajas frecuencias, con un pico dominante que corresponde a la frecuencia fundamental (F0), indicando una voz masculina de tono grave. A medida que aumenta la frecuencia, la magnitud disminuye, evidenciando menor aporte de altas frecuencias. Además, la ausencia de picos en altas frecuencias sugiere buena calidad de grabación y bajo nivel de ruido. |
-| MUJER 1 | | |
-| MUJER 2 | | |
-| MUJER 3 | | |
+| MUJER 1 |<img width="1060" height="453" alt="image" src="https://github.com/user-attachments/assets/c293a7df-062f-4c0e-8e3f-691d5a7b3e96" /> |La gráfica muestra el espectro de frecuencia de una señal de voz femenina, donde se observa que la mayor parte de la energía está concentrada en las frecuencias bajas, especialmente por debajo de los 1000 Hz. Los picos más altos en esa zona corresponden a la frecuencia fundamental y a sus primeros armónicos, que son característicos de la voz humana. A medida que aumenta la frecuencia, la magnitud disminuye considerablemente, lo que indica que las componentes de alta frecuencia tienen menor energía y aportan más a detalles finos del sonido que a su intensidad principal. Además, después de aproximadamente los 5000 Hz la señal se vuelve casi despreciable, lo cual es normal en señales de voz, ya que la mayor información relevante se encuentra en bajas y medias frecuencias. En general, este comportamiento confirma que se trata de una señal de voz bien definida, con un contenido espectral típico donde predominan las frecuencias graves y medias |
+| MUJER 2 | <img width="1039" height="459" alt="image" src="https://github.com/user-attachments/assets/08b35bb2-c4e9-4588-8b23-728247b532e6" />|El espectro muestra una señal de voz con alta concentración de energía en bajas frecuencias, donde aparecen picos muy pronunciados que indican una frecuencia fundamental clara y armónicos fuertes. Esto sugiere una voz con buena intensidad y definición. A medida que aumenta la frecuencia, la energía disminuye rápidamente, evidenciando que las componentes de alta frecuencia tienen poca influencia. En conjunto, la señal presenta un contenido espectral típico de voz humana, pero con mayor amplitud en los picos principales, lo que puede asociarse a una voz más fuerte o con mayor proyección. |
+| MUJER 3 |<img width="1050" height="448" alt="image" src="https://github.com/user-attachments/assets/e8c05bff-7e90-4eab-aa1f-2f703ccf61ca" /> |El espectro muestra una fuerte concentración de energía en bajas frecuencias con picos muy altos, lo que indica una frecuencia fundamental bien definida y armónicos claros. Sin embargo, a diferencia de los anteriores, aquí se observa una mayor presencia de energía en frecuencias medias (alrededor de 5 kHz a 10 kHz), lo que sugiere una señal con más contenido en detalles o mayor riqueza tonal. Aunque la energía disminuye en altas frecuencias, esta señal presenta una distribución más amplia, lo que puede asociarse a una voz con mayor brillo o claridad. |
+
+#### ANALISIS
+<img width="700" height="169" alt="image" src="https://github.com/user-attachments/assets/586659ed-6ccf-4a65-8d41-bc492eb7f094" />
+
+|N |          Archivo |    F0 (Hz) | Frecuencia media (Hz) |  Brillo (Hz)    |   RMS|
+|----|---------------|-----------|----------------|------------|------------|
+| 1 | Hombre1.m4a.wav | 192.360476  |  1904.812069 | 1904.812069 | 0.148978 |
+| 2 | Mujer-3.m4a.wav | 226.017201  |  4937.410048  |4937.410048 | 0.240340 |
+| 3 |  Mujer1.m4a.wav | 212.619914  |  2319.054167  |2319.054167 | 0.181220 |
+| 4 |  Mujer2.m4a.wav | 240.414508  |  3476.629405  |3476.629405 | 0.212984 | 
+| 5 | hombre2.m4a.wav | 133.217065  |  2978.085298  | 2978.085298 | 0.183491 |
+| 6 | hombre3.m4a.wav | 296.715939  |  1512.656158  | 1512.656158 | 0.177155 |
+
+Primero, al observar la frecuencia fundamental (F0), se nota que las voces femeninas (Mujer1, Mujer2 y Mujer3) presentan valores más altos (entre ~212 Hz y 240 Hz) en comparación con la mayoría de las voces masculinas (por ejemplo, Hombre1 con ~192 Hz y Hombre2 con ~133 Hz). Esto es coherente con la teoría, ya que las cuerdas vocales más cortas y tensas producen frecuencias más altas. Sin embargo, el caso de Hombre3 (~296 Hz) destaca porque tiene una F0 inusualmente alta para una voz masculina, lo que podría indicar una voz aguda, un tono elevado al hablar o incluso alguna variación en la grabación.<br>
+
+En cuanto a la frecuencia media y el brillo, se observa que en todos los casos ambos valores coinciden, lo que indica que el centro de energía del espectro está bien representado por estas medidas. La voz de Mujer3 resalta significativamente con valores cercanos a 4937 Hz, lo que indica una mayor presencia de componentes de alta frecuencia, asociadas a una voz más brillante, clara o con mayor nitidez. Por otro lado, voces como Hombre3 (~1512 Hz) presentan menor brillo, lo que sugiere un tono más opaco o grave.<br>
+
+Finalmente, el RMS permite analizar la energía o intensidad de la señal. Aquí se observa que Mujer3 tiene el valor más alto (~0.24), lo que indica que su señal es más intensa o fuerte en comparación con las demás. En contraste, Hombre1 presenta el valor más bajo (~0.15), lo que sugiere una menor energía en la grabación.<br>
+
+En conjunto, los datos evidencian diferencias claras entre las voces: las femeninas tienden a ser más agudas y brillantes, mientras que las masculinas son más graves y con menor contenido en altas frecuencias. Además, se identifican variaciones individuales importantes que muestran que cada voz tiene características propias, lo cual es clave en el análisis de señales de voz.<br>
 
 ## PARTE B
 
