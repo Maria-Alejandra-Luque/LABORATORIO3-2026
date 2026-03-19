@@ -420,4 +420,34 @@ Posterior a la ejecucicon del codigo se obtuvueron las siguentes graficas
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vmujer.png/>
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vhombre.png/>
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vcomparacion.jpeg/>
+
+
+
+
+
+
+Para el Shimmer Y Jittler se obtuvo
+### Mujer 1 Anita:
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/anita.png/>
+
+### Mujer 2 Paula:
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Pau.png/>
+
+### Mujer 3 Lina:
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Lina.png/>
+
+### Hombre 1 Ralph:
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Ralph.png/>
+
+### Hombre 2 Laboratorista:
+
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Lab.png/>
+
+### Hombre 3 Dani:
+
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Dani.png/>
+
+
+
+### Mujer 2 Paula:
 ## PARTE C 
