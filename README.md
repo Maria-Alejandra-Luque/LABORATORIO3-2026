@@ -448,7 +448,7 @@ Posterior a la ejecucicon del codigo se obtuvueron las siguentes graficas
 
 
 
-Para el Shimmer Y Jittler se obtuvo
+Para el Shimmer Y Jittler se obtuvo como valores de referencia sanos
 ### Mujer 1 Anita:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/anita.png/>
 
