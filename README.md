@@ -27,7 +27,7 @@ En la Parte A de la práctica se realiza la adquisición y el análisis inicial 
 ## PARTE B
 
 Para esta Parte del laboratorio, es necesario realizar  la Medición de Jitter y Shimmer, el procediemiento fue seleccionar una de las grabaciones realizadas en la Parte A por cada género (una voz de hombre y una de mujer), posteriormente se busco aplicar un filtro pasa-banda en el rango de la voz (80–400 Hz para hombres, 150–500 Hz para mujeres) para eliminar ruido no deseado.
-Se escogió al sujeto 1 masculino y femenino para aplicar el filtro pasa banda
+Se escogió al sujeto 1 masculino y femenino para aplicar el filtro pasa banda.
 ### Algoritmo 
 ### Codigo 
 
