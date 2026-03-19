@@ -445,9 +445,9 @@ Para el Shimmer Y Jittler se obtuvo
 
 ### Hombre 3 Dani:
 
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Dani.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/dani.png/>
 
 
 
-### Mujer 2 Paula:
+
 ## PARTE C 
