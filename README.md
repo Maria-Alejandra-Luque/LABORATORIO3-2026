@@ -448,7 +448,9 @@ Posterior a la ejecucicon del codigo se obtuvueron las siguentes graficas
 
 
 
-Para el Shimmer Y Jittler se obtuvo como valores de referencia sanos
+Para el Jittler se obtuvo como valores de referencia sanos :
+  * Jitter: < 1.0%
+  * Shimmer: < 5.0%
 ### Mujer 1 Anita:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/anita.png/>
 
@@ -493,6 +495,7 @@ Laboratorista_Hombre_2 (masculino):
 Dani_Hombre_3 (masculino):
   F0=130.8Hz, Jitter=82.150% 
 ```
-
+ Calculos Para El shimmer 
+ 
 
 ## PARTE C 
