@@ -496,6 +496,400 @@ Dani_Hombre_3 (masculino):
   F0=130.8Hz, Jitter=82.150% 
 ```
  Calculos Para El shimmer 
- 
+ ```
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.io import wavfile
+from scipy.signal import butter, filtfilt, find_peaks
+import pandas as pd
+import os
 
+# =========================
+# CONFIGURACIÓN DE RUTAS - TUS ARCHIVOS ESPECÍFICOS
+# =========================
+print("="*80)
+print("ANALISIS DE SHIMMER - PARTE B")
+print("="*80)
+
+# Directorio actual (donde están tus archivos)
+directorio = os.getcwd()
+print(f"Directorio de trabajo: {directorio}")
+
+# Tus archivos de audio (según la imagen)
+archivos_audio = {
+    'Anita_Mujer_1': {'genero': 'femenino', 'archivo': 'Anita_Mujer_1'},
+    'Lina_Mujer_3': {'genero': 'femenino', 'archivo': 'Lina_Mujer_3'},
+    'Paula_Mujer_2': {'genero': 'femenino', 'archivo': 'Paula_Mujer_2'},
+    'Dani_Hombre_3': {'genero': 'masculino', 'archivo': 'Dani_Hombre_3'},
+    'Laboratorista_Hombre_2': {'genero': 'masculino', 'archivo': 'Laboratorista_Hombre_2'},
+    'Ralf_Hombre_1': {'genero': 'masculino', 'archivo': 'Ralf_Hombre_1'}
+}
+
+# Posibles extensiones
+extensiones = ['.wav', '.m4a', '.mp3']
+
+# Verificar y construir rutas completas
+rutas_audios = {}
+for nombre, info in archivos_audio.items():
+    ruta_encontrada = None
+    for ext in extensiones:
+        ruta_prueba = os.path.join(directorio, info['archivo'] + ext)
+        if os.path.exists(ruta_prueba):
+            ruta_encontrada = ruta_prueba
+            print(f"Encontrado: {info['archivo']}{ext}")
+            break
+    
+    if ruta_encontrada:
+        rutas_audios[nombre] = {
+            'ruta': ruta_encontrada,
+            'genero': info['genero']
+        }
+    else:
+        print(f"No encontrado: {info['archivo']} (buscado con extensiones {extensiones})")
+
+if len(rutas_audios) == 0:
+    print("Error: No se encontraron archivos de audio")
+    print("Archivos en el directorio:")
+    for archivo in os.listdir(directorio):
+        if archivo.endswith(('.wav', '.m4a', '.mp3')):
+            print(f"  - {archivo}")
+    exit()
+
+print(f"\nTotal de audios encontrados: {len(rutas_audios)}")
+
+# =========================
+# FUNCIONES DE FILTRADO
+# =========================
+def filtro_pasabanda(audio, fs, lowcut, highcut, order=4):
+    """Aplica filtro pasa banda Butterworth"""
+    nyquist = 0.5 * fs
+    low = lowcut / nyquist
+    high = highcut / nyquist
+
+    # Verificar longitud del audio
+    min_length_required = 3 * (order + 1)
+    if len(audio) <= min_length_required:
+        new_order = max(1, (len(audio) // 3) - 1)
+        order = new_order
+
+    if order <= 0:
+        return np.zeros_like(audio)
+
+    b, a = butter(order, [low, high], btype='band')
+    audio_filtrado = filtfilt(b, a, audio)
+    return audio_filtrado
+
+# =========================
+# FUNCIÓN PARA DETECTAR AMPLITUDES
+# =========================
+def detectar_amplitudes(audio, fs, altura_min_factor=0.1):
+    """Detecta amplitudes (picos) en cada ciclo de la señal"""
+    
+    altura_min = altura_min_factor * np.max(np.abs(audio))
+    distancia_min = int(0.002 * fs)  # 2ms mínimo entre picos
+    
+    # Encontrar picos positivos
+    picos, propiedades = find_peaks(audio, height=altura_min, distance=distancia_min)
+    
+    if len(picos) == 0:
+        return np.array([]), np.array([])
+    
+    amplitudes = propiedades['peak_heights']
+    
+    return amplitudes, picos
+
+# =========================
+# FUNCIÓN PARA CALCULAR SHIMMER
+# =========================
+def calcular_shimmer(amplitudes):
+    """Calcula shimmer absoluto y relativo según las fórmulas especificadas"""
+    if len(amplitudes) < 2:
+        return 0, 0, 0
+
+    N = len(amplitudes)
+
+    # Calcular shimmer absoluto
+    # Shimmer_abs = (1/(N-1)) * Σ|A_i - A_{i+1}|
+    suma_diferencias = 0
+    for i in range(N-1):
+        suma_diferencias += abs(amplitudes[i] - amplitudes[i+1])
+
+    shimmer_abs = suma_diferencias / (N-1)
+
+    # Calcular amplitud promedio
+    # A_promedio = (1/N) * ΣA_i
+    amplitud_promedio = np.mean(amplitudes)
+
+    # Calcular shimmer relativo (%)
+    # Shimmer_rel = (Shimmer_abs / A_promedio) * 100
+    shimmer_rel = (shimmer_abs / amplitud_promedio) * 100
+
+    return shimmer_abs, shimmer_rel, amplitud_promedio
+
+# =========================
+# FUNCIÓN PARA VISUALIZAR RESULTADOS
+# =========================
+def visualizar_resultados(audio_original, audio_filtrado, picos, amplitudes, nombre_audio, genero, fs):
+    """Genera gráficos para visualizar los resultados de shimmer"""
+    
+    fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+    fig.suptitle(f'Analisis de Shimmer - {nombre_audio} ({genero})', fontsize=14, fontweight='bold')
+
+    # Gráfico 1: Señal original vs filtrada
+    muestras_visualizar = min(5000, len(audio_original))
+    tiempo = np.arange(muestras_visualizar) / fs
+
+    axes[0, 0].plot(tiempo, audio_original[:muestras_visualizar],
+                   color='gray', alpha=0.5, label='Original', linewidth=1)
+    axes[0, 0].plot(tiempo, audio_filtrado[:muestras_visualizar],
+                   color='blue', linewidth=1.5, label='Filtrada')
+
+    axes[0, 0].set_title('Señal Original vs Filtrada')
+    axes[0, 0].set_xlabel('Tiempo (s)')
+    axes[0, 0].set_ylabel('Amplitud')
+    axes[0, 0].legend()
+    axes[0, 0].grid(True, alpha=0.3)
+
+    # Gráfico 2: Picos detectados (zoom 100ms)
+    muestras_zoom = int(0.1 * fs)
+    tiempo_zoom = np.arange(muestras_zoom) / fs
+    senal_zoom = audio_filtrado[:muestras_zoom]
+
+    axes[0, 1].plot(tiempo_zoom, senal_zoom, color='blue', linewidth=1.5)
+
+    picos_zoom = [p for p in picos if p < muestras_zoom]
+    if len(picos_zoom) > 0:
+        axes[0, 1].plot(tiempo_zoom[picos_zoom], senal_zoom[picos_zoom],
+                       'ro', markersize=6, label=f'{len(picos_zoom)} picos')
+
+        for i in range(len(picos_zoom)-1):
+            t1 = tiempo_zoom[picos_zoom[i]]
+            t2 = tiempo_zoom[picos_zoom[i+1]]
+            axes[0, 1].axvspan(t1, t2, alpha=0.2, color='yellow')
+
+    axes[0, 1].set_title('Zoom 100ms - Picos Detectados')
+    axes[0, 1].set_xlabel('Tiempo (s)')
+    axes[0, 1].set_ylabel('Amplitud')
+    axes[0, 1].legend()
+    axes[0, 1].grid(True, alpha=0.3)
+
+    # Gráfico 3: Distribución de amplitudes
+    if len(amplitudes) > 0:
+        axes[1, 0].hist(amplitudes, bins=20, alpha=0.7, color='orange', edgecolor='black')
+        axes[1, 0].axvline(np.mean(amplitudes), color='red', linestyle='--',
+                          linewidth=2, label=f'Promedio: {np.mean(amplitudes):.3f}')
+        axes[1, 0].set_title(f'Distribucion de Amplitudes (n={len(amplitudes)})')
+        axes[1, 0].set_xlabel('Amplitud')
+        axes[1, 0].set_ylabel('Frecuencia')
+        axes[1, 0].legend()
+        axes[1, 0].grid(True, alpha=0.3)
+
+    # Gráfico 4: Evolución temporal de amplitudes
+    if len(amplitudes) > 1:
+        axes[1, 1].plot(amplitudes, 'o-', markersize=4, linewidth=1, color='orange')
+        axes[1, 1].axhline(np.mean(amplitudes), color='red', linestyle='--',
+                          linewidth=2, label='Amplitud promedio')
+
+        axes[1, 1].set_title('Evolucion Temporal de Amplitudes')
+        axes[1, 1].set_xlabel('Indice de Amplitud (i)')
+        axes[1, 1].set_ylabel('Amplitud (A_i)')
+        axes[1, 1].legend()
+        axes[1, 1].grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.show()
+
+# =========================
+# FUNCIÓN PRINCIPAL
+# =========================
+def procesar_audio(ruta_audio, nombre_audio, genero):
+    """Procesa un archivo de audio y calcula sus métricas de shimmer"""
+    
+    print(f"\n{'='*60}")
+    print(f"PROCESANDO: {nombre_audio} ({genero})")
+    print(f"{'='*60}")
+
+    try:
+        # Cargar audio
+        fs, audio = wavfile.read(ruta_audio)
+        print(f"Frecuencia de muestreo: {fs} Hz")
+        print(f"Duracion: {len(audio)/fs:.2f} segundos")
+
+        # Convertir a mono si es stereo
+        if len(audio.shape) > 1:
+            audio = audio[:, 0]
+            print("Audio convertido a mono")
+
+        # Convertir a float y normalizar
+        audio = audio.astype(np.float32)
+        audio = audio / np.max(np.abs(audio))
+
+        # Aplicar filtro pasa banda según el género
+        if genero.lower() == 'femenino':
+            audio_filtrado = filtro_pasabanda(audio, fs, 150, 500)
+            rango_frecuencia = "150-500 Hz"
+        else:
+            audio_filtrado = filtro_pasabanda(audio, fs, 80, 400)
+            rango_frecuencia = "80-400 Hz"
+
+        print(f"Filtro aplicado: {rango_frecuencia}")
+
+        # Detectar amplitudes
+        amplitudes, picos = detectar_amplitudes(audio_filtrado, fs)
+
+        print(f"Amplitudes detectadas: {len(amplitudes)}")
+
+        if len(amplitudes) < 2:
+            print("ADVERTENCIA: No se detectaron suficientes amplitudes")
+            return None
+
+        # Calcular métricas de shimmer
+        shimmer_abs, shimmer_rel, amplitud_promedio = calcular_shimmer(amplitudes)
+
+        print(f"\nRESULTADOS SHIMMER:")
+        print(f"  Shimmer absoluto: {shimmer_abs:.6f}")
+        print(f"  Shimmer relativo: {shimmer_rel:.4f} %")
+        print(f"  Amplitud promedio: {amplitud_promedio:.6f}")
+        print(f"  Numero de amplitudes: {len(amplitudes)}")
+
+        print(f"\nFORMULAS APLICADAS:")
+        print(f"  Shimmer_abs = (1/(N-1)) * Σ|A_i - A_i+1| = {shimmer_abs:.6f}")
+        print(f"  Shimmer_rel = (Shimmer_abs / A_promedio) * 100 = {shimmer_rel:.4f}%")
+
+        # Visualización
+        visualizar_resultados(audio, audio_filtrado, picos, amplitudes, nombre_audio, genero, fs)
+
+        return {
+            'Audio': nombre_audio,
+            'Genero': genero,
+            'Shimmer_Abs': round(shimmer_abs, 6),
+            'Shimmer_Rel_pct': round(shimmer_rel, 4),
+            'Amp_Prom': round(amplitud_promedio, 6),
+            'N_Amplitudes': len(amplitudes),
+            'Picos': len(picos)
+        }
+
+    except Exception as e:
+        print(f"ERROR procesando {nombre_audio}: {e}")
+        return None
+
+# =========================
+# EJECUCIÓN PRINCIPAL
+# =========================
+resultados = []
+
+for nombre, info in rutas_audios.items():
+    resultado = procesar_audio(info['ruta'], nombre, info['genero'])
+    if resultado:
+        resultados.append(resultado)
+
+# =========================
+# TABLA DE RESULTADOS
+# =========================
+print("\n" + "="*90)
+print("TABLA DE RESULTADOS - SHIMMER")
+print("="*90)
+
+if resultados:
+    df_resultados = pd.DataFrame(resultados)
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.width', 1000)
+    pd.set_option('display.precision', 4)
+
+    print("\n" + df_resultados.to_string(index=False))
+
+    # =========================
+    # ESTADÍSTICAS POR GÉNERO
+    # =========================
+    print("\n" + "="*60)
+    print("ESTADISTICAS POR GENERO")
+    print("="*60)
+
+    femeninos = df_resultados[df_resultados['Genero'] == 'femenino']
+    masculinos = df_resultados[df_resultados['Genero'] == 'masculino']
+
+    if not femeninos.empty:
+        print(f"\nVOCES FEMENINAS ({len(femeninos)} muestras):")
+        print(f"  Shimmer promedio: {femeninos['Shimmer_Rel_pct'].mean():.4f} %")
+        print(f"  Shimmer absoluto promedio: {femeninos['Shimmer_Abs'].mean():.6f}")
+        print(f"  Amplitud promedio: {femeninos['Amp_Prom'].mean():.6f}")
+
+    if not masculinos.empty:
+        print(f"\nVOCES MASCULINAS ({len(masculinos)} muestras):")
+        print(f"  Shimmer promedio: {masculinos['Shimmer_Rel_pct'].mean():.4f} %")
+        print(f"  Shimmer absoluto promedio: {masculinos['Shimmer_Abs'].mean():.6f}")
+        print(f"  Amplitud promedio: {masculinos['Amp_Prom'].mean():.6f}")
+
+    # =========================
+    # INTERPRETACIÓN CLÍNICA
+    # =========================
+    print("\n" + "="*60)
+    print("INTERPRETACION CLINICA")
+    print("="*60)
+    print("\nValores de referencia (voces sanas):")
+    print("  * Shimmer normal: < 5.0%")
+    print("  * Shimmer moderado: 5.0% - 10.0%")
+    print("  * Shimmer patologico: > 10.0%")
+
+    print("\nAnalisis por sujeto:")
+    for _, row in df_resultados.iterrows():
+        shimmer = row['Shimmer_Rel_pct']
+        if shimmer < 5.0:
+            estado = "NORMAL"
+        elif shimmer < 10.0:
+            estado = "MODERADO"
+        else:
+            estado = "PATOLOGICO"
+        
+        print(f"\n{row['Audio']} ({row['Genero']}):")
+        print(f"  Shimmer = {shimmer:.3f}% - {estado}")
+
+    # =========================
+    # GUARDAR RESULTADOS
+    # =========================
+    ruta_csv = os.path.join(directorio, 'resultados_shimmer.csv')
+    df_resultados.to_csv(ruta_csv, index=False)
+    print(f"\nResultados guardados en: {ruta_csv}")
+
+    ruta_txt = os.path.join(directorio, 'resultados_shimmer.txt')
+    with open(ruta_txt, 'w', encoding='utf-8') as f:
+        f.write("="*80 + "\n")
+        f.write("RESULTADOS SHIMMER - PARTE B\n")
+        f.write("="*80 + "\n\n")
+        
+        for _, row in df_resultados.iterrows():
+            f.write(f"{row['Audio']} ({row['Genero']}):\n")
+            f.write(f"  Shimmer = {row['Shimmer_Rel_pct']:.4f} %\n")
+            f.write(f"  Amplitudes detectadas: {row['N_Amplitudes']}\n\n")
+    
+    print(f"Resumen guardado en: {ruta_txt}")
+
+else:
+    print("No se pudieron procesar los audios")
+
+print("\n" + "="*80)
+print("ANALISIS DE SHIMMER COMPLETADO")
+print("="*80)
+
+```
+ Y las Graficas obtenidas fueron:
+
+### Mujer 1 Anita:
+ <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Sanita.png/>
+
+ ### Mujer 2 Paula:
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Spaula.png/>
+
+ ### Mujer 3 Lina:
+ <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Slina.png/>
+ 
+ ### Hombre 1 Ralph:
+ <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Sralph.png/>
+ 
+ ### Hombre 2 Laboratorista:
+ <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Slab.png/>
+ 
+ ### Hombre 3 Dani:
+ <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Sdani.png/>
+ 
 ## PARTE C 
