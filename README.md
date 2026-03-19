@@ -140,7 +140,282 @@ Este código procesa todos los audios llamando la función de análisis para cad
 
 Para esta Parte del laboratorio, es necesario realizar  la Medición de Jitter y Shimmer, el procediemiento fue seleccionar una de las grabaciones realizadas en la Parte A por cada género (una voz de hombre y una de mujer), posteriormente se busco aplicar un filtro pasa-banda en el rango de la voz (80–400 Hz para hombres, 150–500 Hz para mujeres) para eliminar ruido no deseado.
 Se escogió al sujeto 1 masculino y femenino para aplicar el filtro pasa banda.
+
+
 ### Algoritmo 
 ### Codigo 
+
+
+```
+# =========================
+# PARTE B - SOLO FILTRO PASA BANDA
+# =========================
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.io import wavfile
+from scipy.signal import butter, filtfilt
+import os
+
+# =========================
+# FUNCION FILTRO PASA BANDA
+# =========================
+def filtro_pasabanda(audio, fs, lowcut, highcut, order=4):
+    """Aplica filtro Butterworth pasa-banda"""
+    nyquist = 0.5 * fs
+    low = lowcut / nyquist
+    high = highcut / nyquist
+    
+    # Verificar longitud del audio
+    min_length_required = 3 * (order + 1)
+    if len(audio) <= min_length_required:
+        print(f"Warning: Audio muy corto ({len(audio)}). Reduciendo orden.")
+        new_order = max(1, (len(audio) // 3) - 1)
+        order = new_order
+
+    if order <= 0:
+        print("Error: Audio demasiado corto para filtrar.")
+        return np.zeros_like(audio)
+
+    b, a = butter(order, [low, high], btype='band')
+    audio_filtrado = filtfilt(b, a, audio)
+    return audio_filtrado
+
+# =========================
+# CONFIGURACION INICIAL
+# =========================
+print("="*60)
+print("PARTE B - FILTRO PASA BANDA")
+print("="*60)
+
+# =========================
+# ESPECIFICAR TUS ARCHIVOS
+# =========================
+print("\nVerificando archivos...")
+
+# Directorio actual
+directorio = os.getcwd()
+print(f"Directorio: {directorio}")
+
+# Tus archivos especificos
+archivo_fem = "Paula_Mujer_2"
+archivo_masc = "Ralf_Hombre_1"
+
+# Posibles extensiones
+extensiones = ['.wav', '.m4a', '.mp3', '']
+
+# Buscar el archivo femenino
+ruta_fem = None
+for ext in extensiones:
+    prueba = os.path.join(directorio, archivo_fem + ext)
+    if os.path.exists(prueba):
+        ruta_fem = prueba
+        print(f"Encontrado FEMENINO: {os.path.basename(prueba)}")
+        break
+
+# Buscar el archivo masculino
+ruta_masc = None
+for ext in extensiones:
+    prueba = os.path.join(directorio, archivo_masc + ext)
+    if os.path.exists(prueba):
+        ruta_masc = prueba
+        print(f"Encontrado MASCULINO: {os.path.basename(prueba)}")
+        break
+
+if ruta_fem is None or ruta_masc is None:
+    print("\nERROR: No se encontraron los archivos")
+    print("\nArchivos en el directorio:")
+    for archivo in os.listdir(directorio):
+        print(f"   - {archivo}")
+    exit()
+
+# =========================
+# PROCESAR VOZ FEMENINA (Paula)
+# =========================
+print("\n" + "="*60)
+print("PROCESANDO VOZ FEMENINA - Paula")
+print("="*60)
+
+try:
+    fs_fem, audio_fem = wavfile.read(ruta_fem)
+    print(f"Cargado: {len(audio_fem)} muestras, {fs_fem} Hz")
+    
+    # Convertir a float32
+    audio_fem = audio_fem.astype(np.float32)
+    if len(audio_fem.shape) > 1:
+        audio_fem = audio_fem[:, 0]
+        print("Stereo convertido a Mono")
+    
+    # Normalizar
+    max_val = np.max(np.abs(audio_fem))
+    if max_val > 0:
+        audio_fem = audio_fem / max_val
+    
+    # Filtrar (150-500 Hz para femenino)
+    print("\nAplicando filtro pasa banda (150-500 Hz)...")
+    audio_fem_filtrado = filtro_pasabanda(audio_fem, fs_fem, 150, 500)
+    print("Filtro aplicado correctamente")
+    
+except Exception as e:
+    print(f"Error: {e}")
+
+# =========================
+# PROCESAR VOZ MASCULINA (Ralf)
+# =========================
+print("\n" + "="*60)
+print("PROCESANDO VOZ MASCULINA - Ralf")
+print("="*60)
+
+try:
+    fs_masc, audio_masc = wavfile.read(ruta_masc)
+    print(f"Cargado: {len(audio_masc)} muestras, {fs_masc} Hz")
+    
+    # Convertir a float32
+    audio_masc = audio_masc.astype(np.float32)
+    if len(audio_masc.shape) > 1:
+        audio_masc = audio_masc[:, 0]
+        print("Stereo convertido a Mono")
+    
+    # Normalizar
+    max_val = np.max(np.abs(audio_masc))
+    if max_val > 0:
+        audio_masc = audio_masc / max_val
+    
+    # Filtrar (80-400 Hz para masculino)
+    print("\nAplicando filtro pasa banda (80-400 Hz)...")
+    audio_masc_filtrado = filtro_pasabanda(audio_masc, fs_masc, 80, 400)
+    print("Filtro aplicado correctamente")
+    
+except Exception as e:
+    print(f"Error: {e}")
+
+# =========================
+# GRAFICA 1: VOZ FEMENINA
+# =========================
+print("\nGenerando grafica 1 - Voz femenina...")
+
+plt.figure(figsize=(12, 5))
+
+# Señal original
+plt.subplot(1, 2, 1)
+muestras_orig = min(5000, len(audio_fem))
+tiempo_orig = np.arange(muestras_orig) / fs_fem
+plt.plot(tiempo_orig, audio_fem[:muestras_orig], color='gray', linewidth=1)
+plt.title('Voz Femenina - Original (Paula)')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud')
+plt.grid(True, alpha=0.3)
+
+# Señal filtrada
+plt.subplot(1, 2, 2)
+muestras_filt = min(5000, len(audio_fem_filtrado))
+tiempo_filt = np.arange(muestras_filt) / fs_fem
+plt.plot(tiempo_filt, audio_fem_filtrado[:muestras_filt], color='magenta', linewidth=1.5)
+plt.title('Voz Femenina - Filtrada (150-500 Hz)')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud')
+plt.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# =========================
+# GRAFICA 2: VOZ MASCULINA
+# =========================
+print("Generando grafica 2 - Voz masculina...")
+
+plt.figure(figsize=(12, 5))
+
+# Señal original
+plt.subplot(1, 2, 1)
+muestras_orig = min(5000, len(audio_masc))
+tiempo_orig = np.arange(muestras_orig) / fs_masc
+plt.plot(tiempo_orig, audio_masc[:muestras_orig], color='gray', linewidth=1)
+plt.title('Voz Masculina - Original (Ralf)')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud')
+plt.grid(True, alpha=0.3)
+
+# Señal filtrada
+plt.subplot(1, 2, 2)
+muestras_filt = min(5000, len(audio_masc_filtrado))
+tiempo_filt = np.arange(muestras_filt) / fs_masc
+plt.plot(tiempo_filt, audio_masc_filtrado[:muestras_filt], color='blue', linewidth=1.5)
+plt.title('Voz Masculina - Filtrada (80-400 Hz)')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud')
+plt.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# =========================
+# GRAFICA 3: COMPARACION (opcional)
+# =========================
+print("Generando grafica 3 - Comparacion...")
+
+plt.figure(figsize=(12, 5))
+
+# Ambas señales filtradas
+plt.subplot(1, 2, 1)
+tiempo_fem = np.arange(min(5000, len(audio_fem_filtrado))) / fs_fem
+tiempo_masc = np.arange(min(5000, len(audio_masc_filtrado))) / fs_masc
+plt.plot(tiempo_fem, audio_fem_filtrado[:5000], color='magenta', alpha=0.7, label='Femenina')
+plt.plot(tiempo_masc, audio_masc_filtrado[:5000], color='blue', alpha=0.7, label='Masculina')
+plt.title('Comparacion - Señales Filtradas')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud')
+plt.legend()
+plt.grid(True, alpha=0.3)
+
+# Informacion de filtros
+plt.subplot(1, 2, 2)
+plt.axis('off')
+info_text = (
+    f"INFORMACION DE FILTROS\n"
+    f"{'='*30}\n\n"
+    f"Voz Femenina (Paula):\n"
+    f"• Filtro: 150 - 500 Hz\n"
+    f"• Muestras: {len(audio_fem)}\n"
+    f"• Fs: {fs_fem} Hz\n\n"
+    f"Voz Masculina (Ralf):\n"
+    f"• Filtro: 80 - 400 Hz\n"
+    f"• Muestras: {len(audio_masc)}\n"
+    f"• Fs: {fs_masc} Hz"
+)
+plt.text(0.1, 0.5, info_text, fontsize=12, verticalalignment='center', fontfamily='monospace')
+plt.title('Resumen de Procesamiento')
+
+plt.tight_layout()
+plt.show()
+
+# =========================
+# RESUMEN FINAL
+# =========================
+print("\n" + "="*60)
+print("RESUMEN FINAL")
+print("="*60)
+
+print(f"\nVoz Femenina (Paula):")
+print(f"   • Archivo: {os.path.basename(ruta_fem)}")
+print(f"   • Frecuencia de muestreo: {fs_fem} Hz")
+print(f"   • Muestras originales: {len(audio_fem)}")
+print(f"   • Filtro aplicado: 150 - 500 Hz")
+print(f"   • Muestras filtradas: {len(audio_fem_filtrado)}")
+
+print(f"\nVoz Masculina (Ralf):")
+print(f"   • Archivo: {os.path.basename(ruta_masc)}")
+print(f"   • Frecuencia de muestreo: {fs_masc} Hz")
+print(f"   • Muestras originales: {len(audio_masc)}")
+print(f"   • Filtro aplicado: 80 - 400 Hz")
+print(f"   • Muestras filtradas: {len(audio_masc_filtrado)}")
+
+print("\n" + "="*60)
+print("PROCESAMIENTO COMPLETADO")
+print("="*60)
+
+```
+
+Posterior a la ejecucicon del codigo se obtuvueron las siguentes graficas
 
 ## PARTE C 
