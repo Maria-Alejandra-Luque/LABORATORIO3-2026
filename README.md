@@ -464,7 +464,7 @@ Paula_Mujer_2 (femenino):
   F0=196.7Hz, Jitter=32.397% (Elevado), Shimmer=15.582% 
 ```
 ### Mujer 3 Lina:
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Lina.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/lina.png/>
 ```
 Lina_Mujer_3 (femenino):
   F0=159.6Hz, Jitter=47.617% (Elevado), Shimmer=11.331%
