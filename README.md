@@ -1477,6 +1477,13 @@ Laboratorista_Hombre_2 (masculino):
  ```
 
 Al obsevar los resultados dados se puede inferir que a menor amplitud promedio, mayor tiende a ser el shimmer relativo, posiblemente por efecto del ruido de fondo en señales débiles
+
+Resultados obtenidos del Jitter:
+ <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jittlertabla.png/>
+
+Resultados Obtenidos del Shimmer:
+ <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Sdani.png/>
+
 ## PARTE C 
 
 Antes de presentar los resultados, es importante familiarizarse con algunos conceptos fundamentales para la correcta interpretación de este análisis
