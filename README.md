@@ -958,7 +958,7 @@ Archivo: Lina_Mujer_3.wav
 ```
 
 ### Hombre 1 Ralph:
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jraplh.png/>
+<img src = https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jraplh.png/>
 
 ```
 Ralf_Hombre_1 (masculino):
