@@ -1515,6 +1515,9 @@ Antes de presentar los resultados, es importante familiarizarse con algunos conc
 Se observa que la frecuencia fundamental (F0) es, en general, más baja en las voces masculinas y más alta en las voces femeninas. En los datos analizados, los hombres presentan valores aproximadamente entre 133 Hz y 296 Hz, lo que corresponde a tonos más graves, mientras que las mujeres se sitúan entre 212 Hz y 240 Hz, reflejando tonos más agudos. Aunque existe cierta superposición en algunos casos, la tendencia global coincide con lo esperado fisiológicamente, debido a que las cuerdas vocales masculinas son más largas y gruesas, lo que produce vibraciones a menor frecuencia. <br>
 
 ##### Ofrezca posibles explicaciones desde la fisiología humana que justifiquen diferencias o semejanzas entre los parámetros espectrales de cada género.
+1.En lo que respecta a la frecuencia fundamental se puede explicar de manera que las cuerdas vocales femeninas son más cortas, Por ende vibran más rápido en contraste con las masculinas que son más largas y vibran más lento.
+2.Para el Shimmer y su su valor obtenido puede ver son posibles cierre glótico incompleto o fatiga vocal en los hombres 
+3.En la amplitud promedio tanto en hombres como mujeres se encontró una gran similitud lo que puede representar una condición de grabación consistente 
 
 
 ##### ¿Qué otras diferencias se notan en términos de brillo, media o intensidad?
