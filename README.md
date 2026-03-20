@@ -504,6 +504,7 @@ Para el Jittler se obtuvo como valores de referencia sanos :
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/jr.jpeg/>
   * Jitter: < 1.0%
 A continuación, se muestra el código que se utilizó para calcular todas aquellas mediciones de jitter para cada sujeto femenino y masculino:
+
 ```
 # =========================
 # PARTE B - CÁLCULO DE JITTER
@@ -901,10 +902,7 @@ else:
 print("\n" + "="*80)
 print("ANALISIS DE JITTER COMPLETADO")
 print("="*80)
-
 ```
-
-
 
 ### Mujer 1 Anita:
 
