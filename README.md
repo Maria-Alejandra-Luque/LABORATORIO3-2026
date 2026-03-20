@@ -1513,3 +1513,4 @@ A partir del análisis en el dominio del tiempo y la frecuencia, se concluye que
 ##### Discuta la importancia clínica del jitter y shimmer en el análisis de la voz
 
 El jitter y el shimmer son parámetros fundamentales en el análisis clínico de la voz, ya que permiten evaluar la estabilidad de la vibración de las cuerdas vocales. El jitter mide las variaciones en la frecuencia fundamental entre ciclos consecutivos, mientras que el shimmer evalúa las variaciones en la amplitud de la señal. Valores elevados de estos parámetros pueden indicar alteraciones vocales como disfonías, problemas en el cierre glótico o trastornos neurológicos. Por esta razón, su análisis es ampliamente utilizado en fonoaudiología y otorrinolaringología para el diagnóstico, seguimiento y evaluación de patologías vocales, incluso en casos donde las alteraciones no son fácilmente perceptibles al oído.
+trabajado en jupyter: http://localhost:8889/doc/tree/INFORME3.ipynb 
