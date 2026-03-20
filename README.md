@@ -1504,14 +1504,18 @@ Antes de presentar los resultados, es importante familiarizarse con algunos conc
 | Parámetro | Sujetos Femeninos | Sujetos Masculinos | Diferencia | Análisis |
 |-----------|-------------------|---------------------|------------|----------|
 | Jitter Relativo (%) | 43.52% | 73.66% | 30.14% | Se observa mayor inestabilidad en voces masculinas (73.66% vs 43.52%),representa casi el doble de variación en frecuencia. |
-| Shimmer Relativo (%) | 15.19% | 67.56% | 52.37% | Diferencia muy significativa: voces masculinas tienen 4.5 veces más variabilidad de amplitudes. |
-| F0 Promedio (Hz) | 180.7 Hz | 130.8 Hz | 49.9 Hz | Las voces femeninas son más agudas, 1.38 veces mayor frecuencia, consistente con diferencias anatómicas. |
+| Shimmer Relativo (%) | 15.19% | 67.56% | 52.37% | Diferencia muy significativa: voces masculinas tienen 4.5 veces más variabilidad de amplitudes. Puede sugerire fatiga vocal o posible patología de cuerdas vocales. |
+| F0 Promedio (Hz) | 180.7 Hz | 130.8 Hz | 49.9 Hz | Las voces femeninas son más agudas, 1.38 veces mayor frecuencia,  consistente con la anatomía de cuerdas vocales más cortass |
 | Amplitud Promedio | 0.313 | 0.258 | 0.055 |La  amplitud ligeramente superior en el genero femenino, en donde se observa unadiferencia moderada y ambos grupos con niveles comparables. |
 
-## PARTE C 
+
+
 
 ##### ¿Qué diferencias se observan en la frecuencia fundamental?
 Se observa que la frecuencia fundamental (F0) es, en general, más baja en las voces masculinas y más alta en las voces femeninas. En los datos analizados, los hombres presentan valores aproximadamente entre 133 Hz y 296 Hz, lo que corresponde a tonos más graves, mientras que las mujeres se sitúan entre 212 Hz y 240 Hz, reflejando tonos más agudos. Aunque existe cierta superposición en algunos casos, la tendencia global coincide con lo esperado fisiológicamente, debido a que las cuerdas vocales masculinas son más largas y gruesas, lo que produce vibraciones a menor frecuencia. <br>
+
+##### Ofrezca posibles explicaciones desde la fisiología humana que justifiquen diferencias o semejanzas entre los parámetros espectrales de cada género.
+
 
 ##### ¿Qué otras diferencias se notan en términos de brillo, media o intensidad?
 En términos de brillo y frecuencia media, las voces femeninas presentan valores más altos, lo que indica una mayor presencia de componentes en frecuencias medias y altas, generando una percepción de mayor claridad y brillo. En contraste, las voces masculinas concentran su energía en frecuencias más bajas, lo que les da un carácter más grave y menos brillante. En cuanto a la intensidad, medida mediante el RMS, se observa que las voces femeninas tienden a tener valores ligeramente superiores, lo que sugiere una mayor energía promedio en las grabaciones. No obstante, este parámetro puede variar dependiendo de la forma de emisión vocal y las condiciones de registro.<br>
@@ -1523,3 +1527,6 @@ A partir del análisis en el dominio del tiempo y la frecuencia, se concluye que
 
 El jitter y el shimmer son parámetros fundamentales en el análisis clínico de la voz, ya que permiten evaluar la estabilidad de la vibración de las cuerdas vocales. El jitter mide las variaciones en la frecuencia fundamental entre ciclos consecutivos, mientras que el shimmer evalúa las variaciones en la amplitud de la señal. Valores elevados de estos parámetros pueden indicar alteraciones vocales como disfonías, problemas en el cierre glótico o trastornos neurológicos. Por esta razón, su análisis es ampliamente utilizado en fonoaudiología y otorrinolaringología para el diagnóstico, seguimiento y evaluación de patologías vocales, incluso en casos donde las alteraciones no son fácilmente perceptibles al oído.
 trabajado en jupyter: http://localhost:8889/doc/tree/INFORME3.ipynb 
+
+##### ¿Cómo es la frecuencia fundamental de la densidad espectral de potencia asociada a una señal de voz masculina con respecto a la que se obtiene a partir de una señal de voz femenina, mayor o menor? ¿Qué hay del valor RMS?
+Aunque la frecuencia básica destaca notablemente en la distinción anatómica entre hombres y mujeres, la intensidad media parece ser comparable, lo que sugiere que las condiciones bajo las cuales se realizó la grabación fueron similares y que las variaciones en la estabilidad de la voz (jitter y shimmer) son propias de la señal y no producto de la ganancia de grabación.
