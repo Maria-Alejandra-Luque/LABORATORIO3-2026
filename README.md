@@ -507,7 +507,6 @@ A continuación, se muestra el código que se utilizó para calcular todas aquel
 ```
 # =========================
 # PARTE B - CÁLCULO DE JITTER
-# ADAPTADO PARA TUS ARCHIVOS LOCALES
 # =========================
 
 import numpy as np
@@ -522,7 +521,7 @@ print("PARTE B - CALCULO DE JITTER")
 print("="*80)
 
 # =========================
-# CONFIGURACION DE RUTAS - TUS ARCHIVOS ESPECIFICOS
+# CONFIGURACION DE ARCHIVOSS ESPECIFICOS
 # =========================
 
 # Directorio actual (donde están tus archivos)
@@ -901,8 +900,8 @@ else:
 print("\n" + "="*80)
 print("ANALISIS DE JITTER COMPLETADO")
 print("="*80)
-```
 
+```
 
 
 ### Mujer 1 Anita:
