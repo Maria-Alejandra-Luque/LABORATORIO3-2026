@@ -1413,3 +1413,17 @@ print("="*80)
  <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Sdani.png/>
  
 ## PARTE C 
+## PARTE C 
+
+##### ¿Qué diferencias se observan en la frecuencia fundamental?
+Se observa que la frecuencia fundamental (F0) es, en general, más baja en las voces masculinas y más alta en las voces femeninas. En los datos analizados, los hombres presentan valores aproximadamente entre 133 Hz y 296 Hz, lo que corresponde a tonos más graves, mientras que las mujeres se sitúan entre 212 Hz y 240 Hz, reflejando tonos más agudos. Aunque existe cierta superposición en algunos casos, la tendencia global coincide con lo esperado fisiológicamente, debido a que las cuerdas vocales masculinas son más largas y gruesas, lo que produce vibraciones a menor frecuencia. <br>
+
+##### ¿Qué otras diferencias se notan en términos de brillo, media o intensidad?
+En términos de brillo y frecuencia media, las voces femeninas presentan valores más altos, lo que indica una mayor presencia de componentes en frecuencias medias y altas, generando una percepción de mayor claridad y brillo. En contraste, las voces masculinas concentran su energía en frecuencias más bajas, lo que les da un carácter más grave y menos brillante. En cuanto a la intensidad, medida mediante el RMS, se observa que las voces femeninas tienden a tener valores ligeramente superiores, lo que sugiere una mayor energía promedio en las grabaciones. No obstante, este parámetro puede variar dependiendo de la forma de emisión vocal y las condiciones de registro.<br>
+
+##### Redactar conclusiones sobre el comportamiento de la voz en hombres y mujeres a partir de los análisis realizados
+A partir del análisis en el dominio del tiempo y la frecuencia, se concluye que las voces masculinas y femeninas presentan diferencias claras en sus características acústicas. Las voces masculinas se caracterizan por tener una frecuencia fundamental más baja y una mayor concentración de energía en frecuencias graves, mientras que las voces femeninas presentan frecuencias fundamentales más altas y una mayor presencia en frecuencias medias y altas, lo que les confiere mayor brillo. En ambos casos, las señales muestran variaciones de amplitud, pausas y un comportamiento irregular típico del habla humana. Estas diferencias están directamente relacionadas con las características anatómicas del aparato fonador.<br>
+
+##### Discuta la importancia clínica del jitter y shimmer en el análisis de la voz
+
+El jitter y el shimmer son parámetros fundamentales en el análisis clínico de la voz, ya que permiten evaluar la estabilidad de la vibración de las cuerdas vocales. El jitter mide las variaciones en la frecuencia fundamental entre ciclos consecutivos, mientras que el shimmer evalúa las variaciones en la amplitud de la señal. Valores elevados de estos parámetros pueden indicar alteraciones vocales como disfonías, problemas en el cierre glótico o trastornos neurológicos. Por esta razón, su análisis es ampliamente utilizado en fonoaudiología y otorrinolaringología para el diagnóstico, seguimiento y evaluación de patologías vocales, incluso en casos donde las alteraciones no son fácilmente perceptibles al oído.
