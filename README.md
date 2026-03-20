@@ -1499,6 +1499,13 @@ Antes de presentar los resultados, es importante familiarizarse con algunos conc
 
    ahora se Compara los resultados obtenidos entre las voces masculinas y femeninas.
 
+   | Parámetro | Sujetos Femeninos | Sujetos Masculinos | Diferencia | Análisis |
+|-----------|-------------------|---------------------|------------|----------|
+| **Jitter Relativo (%)** | 43.52% | 73.66% | 30.14% | Demostrando una **mayor inestabilidad en las voces de los sujetos masculinos** (73.66% vs 43.52%), siendo casi el doble de la variación en frecuencia que en las voces femeninas. Esto indica que los hombres presentan mayor dificultad para mantener un tono estable durante la fonación. |
+| **Shimmer Relativo (%)** | 15.19% | 67.56% | 52.37% | Se evidencia una **diferencia muy significativa**, donde las voces masculinas presentan una variabilidad de amplitudes **4.5 veces superior** a las femeninas. Este resultado sugiere una inestabilidad mucho más pronunciada en la intensidad vocal de los sujetos masculinos, posiblemente asociada a fatiga vocal severa o patologías de cuerdas vocales. |
+| **F₀ Promedio (Hz)** | 180.7 Hz | 130.8 Hz | 49.9 Hz | Confirma que las **voces femeninas son más agudas** que las masculinas, con una diferencia de aproximadamente 50 Hz, lo que equivale a 1.38 veces mayor frecuencia. Este resultado es consistente con las diferencias anatómicas esperadas: cuerdas vocales más cortas y delgadas en mujeres generan vibraciones más rápidas. |
+| **Amplitud Promedio** | 0.313 | 0.258 | 0.055 | Las voces femeninas presentan una **amplitud promedio ligeramente superior** (0.313 vs 0.258), indicando que en esta muestra las mujeres hablaron con mayor intensidad que los hombres. Sin embargo, la diferencia es moderada y ambos grupos mantienen niveles comparables de volumen general. |
+
 ## PARTE C 
 
 ##### ¿Qué diferencias se observan en la frecuencia fundamental?
