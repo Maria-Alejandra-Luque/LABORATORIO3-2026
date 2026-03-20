@@ -1503,10 +1503,10 @@ Antes de presentar los resultados, es importante familiarizarse con algunos conc
 
 | Parámetro | Sujetos Femeninos | Sujetos Masculinos | Diferencia | Análisis |
 |-----------|-------------------|---------------------|------------|----------|
-| Jitter Relativo (%) | 43.52% | 73.66% | 30.14% | Mayor inestabilidad en voces masculinas (73.66% vs 43.52%), casi el doble de variación en frecuencia. |
+| Jitter Relativo (%) | 43.52% | 73.66% | 30.14% | Se observa mayor inestabilidad en voces masculinas (73.66% vs 43.52%),representa casi el doble de variación en frecuencia. |
 | Shimmer Relativo (%) | 15.19% | 67.56% | 52.37% | Diferencia muy significativa: voces masculinas tienen 4.5 veces más variabilidad de amplitudes. |
-| F0 Promedio (Hz) | 180.7 Hz | 130.8 Hz | 49.9 Hz | Voces femeninas más agudas, 1.38 veces mayor frecuencia, consistente con diferencias anatómicas. |
-| Amplitud Promedio | 0.313 | 0.258 | 0.055 | Amplitud ligeramente superior en femenino, diferencia moderada y ambos grupos con niveles comparables. |
+| F0 Promedio (Hz) | 180.7 Hz | 130.8 Hz | 49.9 Hz | Las voces femeninas son más agudas, 1.38 veces mayor frecuencia, consistente con diferencias anatómicas. |
+| Amplitud Promedio | 0.313 | 0.258 | 0.055 |La  amplitud ligeramente superior en el genero femenino, en donde se observa unadiferencia moderada y ambos grupos con niveles comparables. |
 
 ## PARTE C 
 
