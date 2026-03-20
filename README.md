@@ -483,6 +483,10 @@ Posterior a la ejecucicon del codigo se obtuvueron las siguentes graficas:
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vcomparacion.jpeg/>
 
 
+Al observar mejor las gráficas se puede observar que los filtros pasaba anda aplicados para la voz femenina y masculina eliminaron correctamente la frecuencia no deseadas,  Además de que ambos audios fueron grabados con la misma frecuencia de muestreo lo que puede garantizar fidelidad en el análisis.
+
+ un detalle observable es que la voz femenina tiene componentes en las frecuencias más altas y la masculina en las frecuencias más bajas
+
 
 
 
