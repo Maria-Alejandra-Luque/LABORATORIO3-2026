@@ -487,7 +487,7 @@ Al observar mejor las gráficas se puede observar que los filtros pasaba anda ap
 
  un detalle observable es que la voz femenina tiene componentes en las frecuencias más altas y la masculina en las frecuencias más bajas
 
-
+<img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/comparacion.jpeg/>
 
 
 
