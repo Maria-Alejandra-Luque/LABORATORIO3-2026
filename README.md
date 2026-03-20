@@ -499,9 +499,9 @@ Para el Jittler se obtuvo como valores de referencia sanos :
 2. Calcule los periodos Ti de la señal de voz.
 
 3. Obtenga el jitter absoluto:
-
-
-
+<img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/jjo.jpeg/>
+4. Obtenga el jitter relativo:
+<img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/jr.jpeg/>
   * Jitter: < 1.0%
 
 ### Mujer 1 Anita:
