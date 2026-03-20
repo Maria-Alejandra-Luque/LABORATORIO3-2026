@@ -508,7 +508,6 @@ A continuación, se muestra el código que se utilizó para calcular todas aquel
 ```
 # =========================
 # PARTE B - CÁLCULO DE JITTER
-# ADAPTADO PARA TUS ARCHIVOS LOCALES
 # =========================
 
 import numpy as np
@@ -1007,7 +1006,16 @@ Laboratorista_Hombre_2 (masculino):
   F0: 130.78 Hz
   JITTER: 82.1503%
 ```
- Calculos Para El shimmer 
+ Medición del Shimmer (variación en la amplitud):
+
+ Detecte los picos de amplitud Ai en cada ciclo.
+
+ Obtenga el shimmer absoluto:
+
+ Calcule el shimmer relativo (%):
+
+
+A continuación, se muestra el codigo que se realizó para calcular cada una de las mediciones de shimer para cada sujeto femenino y masculino.
  ```
 import numpy as np
 import matplotlib.pyplot as plt
