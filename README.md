@@ -503,7 +503,7 @@ Para el Jittler se obtuvo como valores de referencia sanos :
 
 
   * Jitter: < 1.0%
-  * Shimmer: < 5.0%
+
 ### Mujer 1 Anita:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/anita.png/>
 
