@@ -178,7 +178,17 @@ import matplotlib.pyplot as plt
 from scipy.io import wavfile
 from scipy.signal import butter, filtfilt
 import os
+```
+Se realizo la importacion de las librerias necesarias para procesas las señales de Voz:
 
+1. NumPy: para operaciones matemáticas y manejo de arreglos
+
+2. Matplotlib: para generar las gráficas de las señales
+
+3. SciPy: para lectura de archivos WAV, diseño de filtros y detección de picos
+
+4. OS: para manejo de rutas de archivos
+```
 # =========================
 # FUNCION FILTRO PASA BANDA
 # =========================
@@ -202,7 +212,15 @@ def filtro_pasabanda(audio, fs, lowcut, highcut, order=4):
     b, a = butter(order, [low, high], btype='band')
     audio_filtrado = filtfilt(b, a, audio)
     return audio_filtrado
+```
+Se uso un filtro Butterworth pasa-banda de orden 4. Este filtro permite eliminar las frecuencias no deseadas (ruido) y conservar únicamente el rango de interés de la voz humana. Para voces femeninas se utilizo el  rango 150-500 Hz y para masculinas de 80-400 Hz.
+En el código se puede apreciar cómo se hace el cálculo de la frecuencia de Nyquist  que corresponde a la mitad de la frecuencia de muestreo,  es el límite superior de frecuencias que se pueden representar sin aliasing
 
+Además se calculan los coeficientes del numerador y denominador del filtro butterworth. 
+
+Se hace aplicación del filtro filtfilt  en donde el filtro es aplicado en ambas direcciones para eliminar el desfase temporal.
+
+```
 # =========================
 # CONFIGURACION INICIAL
 # =========================
@@ -218,8 +236,11 @@ print("\nVerificando archivos...")
 # Directorio actual
 directorio = os.getcwd()
 print(f"Directorio: {directorio}")
+```
+El programa empieza mostrando un encabezado para identificar la parte de la práctica. Luego obtiene el directorio actual de trabajo usando os.getcwd()  para saber dónde buscar los archivos de audio.
 
-# Tus archivos especificos
+```
+#  archivos especificos
 archivo_fem = "Paula_Mujer_2"
 archivo_masc = "Ralf_Hombre_1"
 
@@ -235,6 +256,10 @@ for ext in extensiones:
         print(f"Encontrado FEMENINO: {os.path.basename(prueba)}")
         break
 
+
+```
+El código busca automáticamente los archivos en diferentes extensiones, lo que permite flexibilidad si los audios están en formatos como WAV, M4A o MP3.
+```
 # Buscar el archivo masculino
 ruta_masc = None
 for ext in extensiones:
@@ -250,7 +275,9 @@ if ruta_fem is None or ruta_masc is None:
     for archivo in os.listdir(directorio):
         print(f"   - {archivo}")
     exit()
-
+```
+Si alguno de los archivos no se puede encontrar, el programa muestra un mensaje de error,  y termina la ejecución con exit().
+```
 # =========================
 # PROCESAR VOZ FEMENINA (Paula)
 # =========================
@@ -280,7 +307,12 @@ try:
     
 except Exception as e:
     print(f"Error: {e}")
+```
+Inicialmente se lee el archivo wav y es devuelto en frecuencia de muestreo en Hz.
+Luego mediante audio. Shape  se puede identificar si el audio es estéreo caso tal solo se toma el primer canal [:,0].
+Se realiza la aplicación del filtro pasa banda en el rango establecido para la voz femenina ( 150-500 Hz
 
+```
 # =========================
 # PROCESAR VOZ MASCULINA (Ralf)
 # =========================
@@ -310,7 +342,10 @@ try:
     
 except Exception as e:
     print(f"Error: {e}")
+```
+Se realiza el mismo procedimiento para la voz masculina, pero aplicando un filtro pasa-banda con rango 80-400 Hz, que es el rango típico de la voz masculina
 
+```
 # =========================
 # GRAFICA 1: VOZ FEMENINA
 # =========================
@@ -341,6 +376,10 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.show()
 
+
+```
+En esta parte del código se  determina el ancho y alto de la figura también su posición, la cantidad de muestras a tomar, También se crea el vector de tiempo en segundos,  y se hace elección de los colores para diferenciar la señal filtrada de la original (gris).
+```
 # =========================
 # GRAFICA 2: VOZ MASCULINA
 # =========================
@@ -435,10 +474,10 @@ print(f"   • Muestras filtradas: {len(audio_masc_filtrado)}")
 print("\n" + "="*60)
 print("PROCESAMIENTO COMPLETADO")
 print("="*60)
-
 ```
+Posterior a la ejecucicon del codigo se obtuvueron las siguentes graficas:
 
-Posterior a la ejecucicon del codigo se obtuvueron las siguentes graficas
+
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vmujer.png/>
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vhombre.png/>
 <img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Vcomparacion.jpeg/>
