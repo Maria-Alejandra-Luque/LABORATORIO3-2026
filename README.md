@@ -1484,7 +1484,7 @@ Resultados obtenidos del Jitter:
 
 Resultados Obtenidos del Shimmer:
 
- <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/shimmertabla.jpeg/>
+ <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Shimmertabla.jpeg/>
 
 ## PARTE C 
 
