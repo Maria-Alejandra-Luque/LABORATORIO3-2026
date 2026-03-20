@@ -165,6 +165,8 @@ Se escogió al sujeto 1 masculino y femenino para aplicar el filtro pasa banda.
 
 
 ### Algoritmo 
+<img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/diagramab.jpeg/>
+
 ### Codigo 
 
 
