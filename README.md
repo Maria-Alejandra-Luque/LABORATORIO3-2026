@@ -507,6 +507,7 @@ A continuación, se muestra el código que se utilizó para calcular todas aquel
 ```
 # =========================
 # PARTE B - CÁLCULO DE JITTER
+# ADAPTADO PARA TUS ARCHIVOS LOCALES
 # =========================
 
 import numpy as np
@@ -521,7 +522,7 @@ print("PARTE B - CALCULO DE JITTER")
 print("="*80)
 
 # =========================
-# CONFIGURACION DE ARCHIVOSS ESPECIFICOS
+# CONFIGURACION DE RUTAS - TUS ARCHIVOS ESPECIFICOS
 # =========================
 
 # Directorio actual (donde están tus archivos)
@@ -904,7 +905,9 @@ print("="*80)
 ```
 
 
+
 ### Mujer 1 Anita:
+
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jana.png/>
 
 ```
@@ -954,7 +957,7 @@ Archivo: Lina_Mujer_3.wav
   JITTER: 47.6172%
 
 ### Hombre 1 Ralph:
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/jraplh.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/jraphl.png/>
 
 ```
 Ralf_Hombre_1 (masculino):
