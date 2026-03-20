@@ -505,48 +505,106 @@ Para el Jittler se obtuvo como valores de referencia sanos :
   * Jitter: < 1.0%
 
 ### Mujer 1 Anita:
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/anita.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jana.png/>
 
 ```
-Anita_Mujer_1 (femenino):
-  F0=185.8Hz, Jitter=50.544% (Elevado), Shimmer=18.671%
+Archivo: Anita_Mujer_1.wav
+  Frecuencia muestreo: 48000 Hz
+  Muestras: 193472 (4.03 s)
+  Filtro: 150-500 Hz
+  Picos detectados: 656
+  Periodos analizados: 655
+  Periodo promedio: 5.3818 ms
+  Periodo min/max: 2.0000 / 209.2708 ms
+  Desviacion estandar: 11.4369 ms
+  F0: 185.81 Hz
+  JITTER: 50.5438%
+
 ```
 ### Mujer 2 Paula:
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Pau.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jpaula.png/>
 
 ```
 Paula_Mujer_2 (femenino):
-  F0=196.7Hz, Jitter=32.397% (Elevado), Shimmer=15.582% 
+  Archivo: Paula_Mujer_2.wav
+  Frecuencia muestreo: 48000 Hz
+  Muestras: 185280 (3.86 s)
+  Filtro: 150-500 Hz
+  Picos detectados: 608
+  Periodos analizados: 607
+  Periodo promedio: 5.0849 ms
+  Periodo min/max: 2.0000 / 92.0625 ms
+  Desviacion estandar: 5.8854 ms
+  F0: 196.66 Hz
+  JITTER: 32.3965%
 ```
 ### Mujer 3 Lina:
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/lina.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jlina.png/>
 ```
-Lina_Mujer_3 (femenino):
-  F0=159.6Hz, Jitter=47.617% (Elevado), Shimmer=11.331%
-```
+Archivo: Lina_Mujer_3.wav
+  Frecuencia muestreo: 48000 Hz
+  Muestras: 193472 (4.03 s)
+  Filtro: 150-500 Hz
+  Picos detectados: 593
+  Periodos analizados: 592
+  Periodo promedio: 6.2654 ms
+  Periodo min/max: 2.1042 / 151.8542 ms
+  Desviacion estandar: 11.4569 ms
+  F0: 159.61 Hz
+  JITTER: 47.6172%
 
 ### Hombre 1 Ralph:
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Ralph.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/jraplh.png/>
 
 ```
 Ralf_Hombre_1 (masculino):
-  F0=129.8Hz, Jitter=64.381% (Elevado), Shimmer=83.363% 
+  Archivo: Ralf_Hombre_1.wav
+  Frecuencia muestreo: 48000 Hz
+  Muestras: 209856 (4.37 s)
+  Filtro: 80-400 Hz
+  Picos detectados: 457
+  Periodos analizados: 456
+  Periodo promedio: 7.7038 ms
+  Periodo min/max: 2.2917 / 154.5417 ms
+  Desviacion estandar: 14.4791 ms
+  F0: 129.81 Hz
+  JITTER: 64.3809% 
 ```
 ### Hombre 2 Laboratorista:
 
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Lab.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jlab.png/>
 
 ```
 Laboratorista_Hombre_2 (masculino):
-  F0=131.9Hz, Jitter=74.440% 
+
+  Archivo: Laboratorista_Hombre_2.wav
+  Frecuencia muestreo: 48000 Hz
+  Muestras: 238528 (4.97 s)
+  Filtro: 80-400 Hz
+  Picos detectados: 608
+  Periodos analizados: 607
+  Periodo promedio: 7.5795 ms
+  Periodo min/max: 2.0208 / 325.5833 ms
+  Desviacion estandar: 20.8847 ms
+  F0: 131.94 Hz
+  JITTER: 74.4397%
 ```
 ### Hombre 3 Dani:
 
-<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/dani.png/>
+<img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jdani.png/>
 
 ```
-Dani_Hombre_3 (masculino):
-  F0=130.8Hz, Jitter=82.150% 
+ Archivo: Dani_Hombre_3.wav
+  Frecuencia muestreo: 44100 Hz
+  Muestras: 213577 (4.84 s)
+  Filtro: 80-400 Hz
+  Picos detectados: 542
+  Periodos analizados: 541
+  Periodo promedio: 7.6464 ms
+  Periodo min/max: 2.2449 / 323.1066 ms
+  Desviacion estandar: 22.4794 ms
+  F0: 130.78 Hz
+  JITTER: 82.1503%
 ```
  Calculos Para El shimmer 
  ```
