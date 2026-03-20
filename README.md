@@ -492,6 +492,16 @@ Al observar mejor las gráficas se puede observar que los filtros pasaba anda ap
 
 
 Para el Jittler se obtuvo como valores de referencia sanos :
+### Medición del Jitter (variación en la frecuencia fundamental):
+
+1. Detecte los periodos de vibración de la señal (usando cruces por cero o picos sucesivos).
+
+2. Calcule los periodos Ti de la señal de voz.
+
+3. Obtenga el jitter absoluto:
+
+
+
   * Jitter: < 1.0%
   * Shimmer: < 5.0%
 ### Mujer 1 Anita:
