@@ -168,6 +168,8 @@ Se escogió al sujeto 1 masculino y femenino para aplicar el filtro pasa banda.
 ### Codigo 
 
 
+
+
 ```
 # =========================
 # PARTE B - SOLO FILTRO PASA BANDA
@@ -940,6 +942,7 @@ Paula_Mujer_2 (femenino):
 ```
 ### Mujer 3 Lina:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Jlina.png/>
+
 ```
 Archivo: Lina_Mujer_3.wav
   Frecuencia muestreo: 48000 Hz
@@ -951,7 +954,8 @@ Archivo: Lina_Mujer_3.wav
   Periodo min/max: 2.1042 / 151.8542 ms
   Desviacion estandar: 11.4569 ms
   F0: 159.61 Hz
-  JITTER: 47.6172%
+  JITTER: 47.6172% 
+```
 
 ### Hombre 1 Ralph:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/jraphl.png/>
@@ -1006,15 +1010,25 @@ Laboratorista_Hombre_2 (masculino):
   F0: 130.78 Hz
   JITTER: 82.1503%
 ```
- Medición del Shimmer (variación en la amplitud):
+Al observar el análisis de Jitter se observa que todas las puse analizadas presentan valores patológicos esto puede verse al ruido ambiental que afecta la detección de periodos, o a la posible fatiga vocal de los sujetos de prueba, No sin antes descartar que posiblemente alguno de los sujetos sea padeciente de alguna patología vocal como disfonías.
 
- Detecte los picos de amplitud Ai en cada ciclo.
-
- Obtenga el shimmer absoluto:
-
- Calcule el shimmer relativo (%):
+Como observaciones por grupo se puede observar que Paula presenta el Jitter más bajo, considerándose la voz más estable del grupo analizado.
+ mientras que Anita y Lina poseen un valor muy similar de Jitter
 
 
+ ### Medición del Shimmer (variación en la amplitud):
+
+Detecte los picos de amplitud Ai en cada ciclo.
+
+Obtenga el shimmer absoluto:
+<img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Shimmer.jpeg/>
+Calcule el shimmer relativo (%):
+<img src= https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Shimmerrelativo.jpeg/>
+
+Datos a tener en cuenta:
+ • Shimmer normal: < 5.0%
+  • Shimmer moderado: 5.0% - 10.0%
+  • Shimmer patologico: > 10.0%
 A continuación, se muestra el codigo que se realizó para calcular cada una de las mediciones de shimer para cada sujeto femenino y masculino.
  ```
 import numpy as np
@@ -1396,23 +1410,86 @@ print("="*80)
 
 ### Mujer 1 Anita:
  <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Sanita.png/>
+ 
+ ```
+Anita_Mujer_1 (femenino):
+  • Shimmer = 18.671% - PATOLOGICO
+  • Amplitud promedio (A_promedio) = 0.234181
+  • N = 656 amplitudes analizadas
+ ```
 
  ### Mujer 2 Paula:
 <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Spaula.png/>
 
+ ```
+Paula_Mujer_2 (femenino):
+  • Shimmer = 15.582% - PATOLOGICO
+  • Amplitud promedio (A_promedio) = 0.288227
+  • N = 608 amplitudes analizadas
+ ```
  ### Mujer 3 Lina:
  <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Slina.png/>
+
+ 
+ ```
+Lina_Mujer_3 (femenino):
+  • Shimmer = 11.331% - PATOLOGICO
+  • Amplitud promedio (A_promedio) = 0.416593
+  • N = 593 amplitudes analizadas
+
+ ```
  
  ### Hombre 1 Ralph:
  <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Sralph.png/>
+
+ 
+ ```
+Ralf_Hombre_1 (masculino):
+  • Shimmer = 83.363% - PATOLOGICO
+  • Amplitud promedio (A_promedio) = 0.242004
+  • N = 457 amplitudes analizadas
+
+ ```
  
  ### Hombre 2 Laboratorista:
  <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Slab.png/>
+
+ 
+ ```
+Laboratorista_Hombre_2 (masculino):
+  • Shimmer = 49.649% - PATOLOGICO
+  • Amplitud promedio (A_promedio) = 0.242871
+  • N = 608 amplitudes analizadas
+
+ ```
  
  ### Hombre 3 Dani:
  <img src=https://github.com/Maria-Alejandra-Luque/LABORATORIO3-2026/blob/main/Sdani.png/>
+
+
+ ```
+
+ Dani_Hombre_3 (masculino):
+  • Shimmer = 69.678% - PATOLOGICO
+  • Amplitud promedio (A_promedio) = 0.288856
+  • N = 542 amplitudes analizadas
  
+ ```
+
+Al obsevar los resultados dados se puede inferir que a menor amplitud promedio, mayor tiende a ser el shimmer relativo, posiblemente por efecto del ruido de fondo en señales débiles
 ## PARTE C 
+
+Antes de presentar los resultados, es importante familiarizarse con algunos conceptos fundamentales para la correcta interpretación de este análisis
+
+1. Shimmer: Variación porcentual en la amplitud de la onda sonora entre ciclos consecutivos. Valores elevados se perciben como ronquera o aspereza en la voz. Se calcula como la diferencia absoluta promedio entre las amplitudes de periodos consecutivos dividida entre la amplitud media.
+2. Jitter: Pequeñas variaciones en la frecuencia fundamental entre ciclos glóticos consecutivos. Indica el grado de estabilidad de la voz.
+3.Ciclos glóticos: Ciclo de apertura y cierre de la glotis (cuerdas vocales) que genera los sonidos durante la fonación.
+4. Espectro de frecuencia: Representación de las frecuencias que componen una onda sonora. En la voz humana, se sitúa principalmente entre 80 Hz y 1100 Hz, aunque puede presentar variaciones.
+5. RMS (Root Mean Square):	Nivel de volumen promedio de la señal, también conocido como "media cuadrática". Se expresa en decibeles y representa la intensidad de la voz.
+6. Frecuencia fundamental (F0): Tasa de vibración de las cuerdas vocales durante la generación de sonidos. Se mide en Hertz (Hz) y determina el tono percibido de la voz (grave o agudo).
+
+   ahora se Compara los resultados obtenidos entre las voces masculinas y femeninas.
+
 ## PARTE C 
 
 ##### ¿Qué diferencias se observan en la frecuencia fundamental?
